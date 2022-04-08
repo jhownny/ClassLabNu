@@ -20,10 +20,10 @@ namespace ClassLabNu
         //Propriedades
         public int Id { get { return id; } set { id = value; } }
         public string Descricao { get { return descricao; } set { descricao = value; } }
-        public int Valor { get { return valor; } set { valor = value; } } 
+        public int Valor { get { return valor; } set { valor = value; } }
         public string Cod_Bar { get { return cod_Bar; } set { cod_Bar = value; } }
         public int Desconto { get { return desconto; } set { desconto = value; } }
-        public string Unidade { get { return unidade; } set { unidade = value; } } 
+        public string Unidade { get { return unidade; } set { unidade = value; } }
 
         //Métodos Construtores
         public Produto()
@@ -31,7 +31,7 @@ namespace ClassLabNu
 
         }
 
-        public Produto( string descricao, int valor, string cod_Bar, int desconto,string unidade)
+        public Produto(string descricao, int valor, string cod_Bar, int desconto, string unidade)
         {
             Descricao = descricao;
             Valor = valor;
@@ -53,12 +53,34 @@ namespace ClassLabNu
 
         //Métodos da Classe
 
-        public static ConsultarCompraPorId(int id)
+        public static Produto ConsultarValorId(int id, int desconto, string descricao)
+        {
+            Produto produto = new Produto();
+
+            return produto;
+        }
+
+        public static Produto ConsultarDesconto(string descricao, int id, int cod_Bar)
         {
 
 
 
+
         }
+
+        public static List<Produto> Listar(int id, string cod_Bar, string descricao)
+        {
+
+            List<Produto> produtos = new List<Produto>();
+            Produto produto = new Produto();
+
+            return produtos;
+
+
+        }
+
+        
+
 
 
     }
