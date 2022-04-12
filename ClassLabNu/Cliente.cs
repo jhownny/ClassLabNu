@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace ClassLabNu
 {
     public class Cliente
     {
         //atributos
-        private string id;
+        private int id;
         private string nome;
         private string cpf;
         private string email; 
@@ -17,13 +18,15 @@ namespace ClassLabNu
         private bool ativo;
 
         //propriedades
-        public string Id { get { return id; } set { id = value; } }
-        public string Nome { get { return id; } set { id = value; } }
-        public string Cpf { get { return nome; } set { nome = value; } }
+        public int Id { get { return id; } set { id = value; } }
+        public string Nome { get { return nome; } set { nome = value; } }
+        public string Cpf { get { return cpf; } set { cpf = value; } }
         public DateTime Data_Cad { get { return data_Cad; } set { data_Cad = value; } }
         public string Email { get { return email; } set { email = value; } }
         public bool Ativo { get { return ativo; } set { ativo = value; } }
 
+
+        //construtores
         public Cliente()
         {
         }
@@ -37,21 +40,32 @@ namespace ClassLabNu
             //ativo = true;
         }
 
-     
-        
-
-
-
-        //construtores
-
-
-        //métodos da classe
-        public void Inserir(Cliente cliente)
+        public Cliente(int id, string nome, string cpf, string email, DateTime data_Cad, bool ativo)
         {
-
+            Id = id;
+            Nome = nome;
+            Cpf = cpf;
+            Email = email;
+            Data_Cad = data_Cad;
+            Ativo = ativo;
 
 
         }
+
+        //métodos da classe
+        public void Inserir()
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = "insert clientes(nome, cpf, email, datacad, ativo) values('"+Nome+"', '"+Cpf+"', '"+Email+"', default, default)";
+
+            cmd.ExecuteNonQuery();
+            cmd.CommandText = "Select @@identity";
+            Id = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Connection.Close();
+
+        }
+
 
         public bool Aterar(Cliente cliente)
         {
@@ -71,9 +85,6 @@ namespace ClassLabNu
 
             Cliente cliente = new Cliente();
 
-
-            Cliente cliente2 = new Cliente();
-            cliente2 = Cliente.ConsultarPorCpf("12345678900");
             return cliente;
 
         }
@@ -81,7 +92,7 @@ namespace ClassLabNu
         public static List<Cliente> Listar()
         {
             List<Cliente> clientes = new List<Cliente>();
-            Cliente cliente = new Cliente();
+            
 
             return clientes;
 

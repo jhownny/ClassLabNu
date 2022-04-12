@@ -9,79 +9,84 @@ namespace ClassLabNu
     public class Produto
     {
 
-        //Atributos
+        // atributos da classe
         private int id;
         private string descricao;
-        private string unidade;
-        private string cod_Bar;
-        private int valor;
-        private int desconto;
+        private double unidade;
+        private string codBar;
+        private double valor;
+        private double desconto;
+        private bool descontinuado;
 
-        //Propriedades
-        public int Id { get { return id; } set { id = value; } }
-        public string Descricao { get { return descricao; } set { descricao = value; } }
-        public int Valor { get { return valor; } set { valor = value; } }
-        public string Cod_Bar { get { return cod_Bar; } set { cod_Bar = value; } }
-        public int Desconto { get { return desconto; } set { desconto = value; } }
-        public string Unidade { get { return unidade; } set { unidade = value; } }
+        // propriedades
+        public int Id { get { return id; } }
+        public string Descricao { get { return descricao; } }
+        public double Unidade { get { return unidade; } }
+        public string CodBar { get { return codBar; } }
+        public double Valor { get { return valor; } }
+        public double Desconto { get { return desconto; } }
+        public bool Descontinuado { get { return descontinuado; } }
 
-        //Métodos Construtores
+        // construtores
         public Produto()
         {
-
         }
 
-        public Produto(string descricao, int valor, string cod_Bar, int desconto, string unidade)
+        public Produto(string descricao, double unidade, string codBar, double valor, double desconto)
         {
-            Descricao = descricao;
-            Valor = valor;
-            Cod_Bar = cod_Bar;
-            Desconto = desconto;
-            Unidade = unidade;
+            this.descricao = descricao;
+            this.unidade = unidade;
+            this.codBar = codBar;
+            this.valor = valor;
+            this.desconto = desconto;
         }
-
-        public Produto(int id, string descricao, string unidade, string cod_Bar, int valor, int desconto)
+        public Produto(int id, string descricao, double unidade, string codBar, double valor, double desconto, bool descontinuado)
         {
             this.id = id;
             this.descricao = descricao;
             this.unidade = unidade;
-            this.cod_Bar = cod_Bar;
+            this.codBar = codBar;
             this.valor = valor;
             this.desconto = desconto;
+            this.descontinuado = descontinuado;
         }
 
-
-        //Métodos da Classe
-
-        public static Produto ConsultarValorId(int id, int desconto, string descricao)
+        // métodos da Classe
+        public void Inserir() { }
+        public Produto BuscarPorId(int _id)
         {
             Produto produto = new Produto();
-
+            // conecta banco realiza consulta por Id do produto
             return produto;
         }
-
-        public static Produto ConsultarDesconto(string descricao, int id, int cod_Bar)
+        public Produto BuscarPorCodBar(string _codBar)
         {
-
-
-
-
-        }
-
-        public static List<Produto> Listar(int id, string cod_Bar, string descricao)
-        {
-
-            List<Produto> produtos = new List<Produto>();
             Produto produto = new Produto();
-
+            // conecta banco e realiza consulta por código de barras do produtos
+            return produto;
+        }
+        public List<Produto> BuscarPorDescricao(string _descricao)
+        {
+            List<Produto> produtos = new List<Produto>();
+            // conecta banco e realiza consulta por parte da descriação do produtos
             return produtos;
-
-
+        }
+        public List<Produto> ListarTodos()
+        {
+            List<Produto> produtos = new List<Produto>();
+            // conecta banco e realiza consulta retornando todos produtos
+            return produtos;
+        }
+        public bool Alterar()
+        {
+            return true;
         }
 
-        
+    }// fim da classe produto
 
 
 
-    }
+
+
+
 }
