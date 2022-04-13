@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using System.Data;
+
 
 namespace ClassLabNu
 {
@@ -56,11 +57,12 @@ namespace ClassLabNu
         public void Inserir()
         {
             var cmd = Banco.Abrir();
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "insert clientes(nome, cpf, email, datacad, ativo) values('"+Nome+"', '"+Cpf+"', '"+Email+"', default, default)";
-
-            cmd.ExecuteNonQuery();
-            cmd.CommandText = "Select @@identity";
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "sp_cliente_inserir";
+            cmd.Parameters.AddWithValue("_nome",Nome);
+            cmd.Parameters.AddWithValue("_cpf",Cpf);
+            cmd.Parameters.AddWithValue("_email",Email);
+            
             Id = Convert.ToInt32(cmd.ExecuteScalar());
             cmd.Connection.Close();
 
@@ -92,7 +94,23 @@ namespace ClassLabNu
         public static List<Cliente> Listar()
         {
             List<Cliente> clientes = new List<Cliente>();
-            
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "Select * from clientes order by 2";
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+
+                clientes.Add(new Cliente(
+                    dr.GetInt32(0),
+                    dr.GetString(1),
+                    dr.GetString(2),
+                    dr.GetString(3),
+                    dr.GetDateTime(4),
+                    dr.GetBoolean(5)
+                    ));    
+
+            }
 
             return clientes;
 
