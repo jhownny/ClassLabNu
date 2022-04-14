@@ -1,6 +1,6 @@
 ﻿namespace ComercialSys91
 {
-    partial class Form1
+    partial class FrmCliente
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -36,7 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnInserir = new System.Windows.Forms.Button();
+            this.btnInserirCli = new System.Windows.Forms.Button();
             this.lstClientes = new System.Windows.Forms.ListBox();
             this.btnListar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -72,6 +72,7 @@
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(100, 20);
             this.txtCpf.TabIndex = 3;
+            this.txtCpf.TextChanged += new System.EventHandler(this.txtCpf_TextChanged);
             // 
             // label1
             // 
@@ -111,23 +112,24 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "E-Mail";
             // 
-            // btnInserir
+            // btnInserirCli
             // 
-            this.btnInserir.Location = new System.Drawing.Point(692, 392);
-            this.btnInserir.Name = "btnInserir";
-            this.btnInserir.Size = new System.Drawing.Size(75, 23);
-            this.btnInserir.TabIndex = 8;
-            this.btnInserir.Text = "&Inserir";
-            this.btnInserir.UseVisualStyleBackColor = true;
-            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
+            this.btnInserirCli.Location = new System.Drawing.Point(141, 228);
+            this.btnInserirCli.Name = "btnInserirCli";
+            this.btnInserirCli.Size = new System.Drawing.Size(75, 23);
+            this.btnInserirCli.TabIndex = 8;
+            this.btnInserirCli.Text = "&Inserir";
+            this.btnInserirCli.UseVisualStyleBackColor = true;
+            this.btnInserirCli.Click += new System.EventHandler(this.btnInserirCli_Click);
             // 
             // lstClientes
             // 
             this.lstClientes.FormattingEnabled = true;
-            this.lstClientes.Location = new System.Drawing.Point(371, 106);
+            this.lstClientes.Location = new System.Drawing.Point(371, 107);
             this.lstClientes.Name = "lstClientes";
             this.lstClientes.Size = new System.Drawing.Size(288, 225);
             this.lstClientes.TabIndex = 9;
+            this.lstClientes.SelectedIndexChanged += new System.EventHandler(this.lstClientes_SelectedIndexChanged);
             // 
             // btnListar
             // 
@@ -139,14 +141,14 @@
             this.btnListar.UseVisualStyleBackColor = true;
             this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
-            // Form1
+            // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.lstClientes);
-            this.Controls.Add(this.btnInserir);
+            this.Controls.Add(this.btnInserirCli);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -155,7 +157,7 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.txtNome);
-            this.Name = "Form1";
+            this.Name = "FrmCliente";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -173,7 +175,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnInserir;
+        private System.Windows.Forms.Button btnInserirCli;
         private System.Windows.Forms.ListBox lstClientes;
         private System.Windows.Forms.Button btnListar;
     }

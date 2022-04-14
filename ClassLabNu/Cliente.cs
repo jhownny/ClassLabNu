@@ -82,7 +82,7 @@ namespace ClassLabNu
             return cliente;
 
         }
-        public static Cliente ConsultarPorCpf(string cpf)
+        public static Cliente ConsultarPorCpf(int cpf)
         {
 
             Cliente cliente = new Cliente();

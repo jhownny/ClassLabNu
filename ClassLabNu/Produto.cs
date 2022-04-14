@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace ClassLabNu
 {
@@ -74,7 +75,24 @@ namespace ClassLabNu
         public List<Produto> ListarTodos()
         {
             List<Produto> produtos = new List<Produto>();
-            // conecta banco e realiza consulta retornando todos produtos
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "Select * from clientes order";
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+
+                produtos.Add(new Produto(
+                    dr.GetInt32(0),
+                    dr.GetString(1),
+                    dr.GetDouble(2),
+                    dr.GetString(3),
+                    dr.GetDouble(4),
+                    dr.GetDouble(5),
+                    dr.GetBoolean(6)
+                    ));
+
+            }
             return produtos;
         }
         public bool Alterar()

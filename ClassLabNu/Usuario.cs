@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace ClassLabNu
 {
@@ -58,6 +59,16 @@ namespace ClassLabNu
 
 
         }
+
+        public List<Usuario> ListarUsuario()
+        {
+            List<Usuario> usuarios = new List<Usuario>();
+
+            return usuarios;
+
+
+        }
+
         public static bool EfetuarLogin(string email, string password)
         {
             //Realiza validação e devolve verdadeiro ou falso
