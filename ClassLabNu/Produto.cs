@@ -15,7 +15,7 @@ namespace ClassLabNu
         private string descricao;
         private double unidade;
         private string codBar;
-        private double valor;
+        private int valor;
         private double desconto;
         private bool descontinuado;
 
@@ -24,7 +24,7 @@ namespace ClassLabNu
         public string Descricao { get { return descricao; } }
         public double Unidade { get { return unidade; } }
         public string CodBar { get { return codBar; } }
-        public double Valor { get { return valor; } }
+        public int Valor { get { return valor; } }
         public double Desconto { get { return desconto; } }
         public bool Descontinuado { get { return descontinuado; } }
 
@@ -33,7 +33,7 @@ namespace ClassLabNu
         {
         }
 
-        public Produto(string descricao, double unidade, string codBar, double valor, double desconto)
+        public Produto(string descricao, double unidade, string codBar, int valor, double desconto)
         {
             this.descricao = descricao;
             this.unidade = unidade;
@@ -47,7 +47,7 @@ namespace ClassLabNu
             throw new NotImplementedException();
         }
 
-        public Produto(int id, string descricao, double unidade, string codBar, double valor, double desconto, bool descontinuado)
+        public Produto(int id, string descricao, double unidade, string codBar, int valor, double desconto, bool descontinuado)
         {
             this.id = id;
             this.descricao = descricao;
@@ -115,7 +115,7 @@ namespace ClassLabNu
                     dr.GetString(1),
                     dr.GetDouble(2),
                     dr.GetString(3),
-                    dr.GetDouble(4),
+                    dr.GetInt32(4),
                     dr.GetDouble(5),
                     dr.GetBoolean(6)
                     ));

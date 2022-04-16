@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClassLabNu;
+using MySql.Data.MySqlClient;
 
 namespace ComercialSys91
 {
@@ -38,7 +39,7 @@ namespace ComercialSys91
             else
             {
 
-                MessageBox.Show("Falha ao inserir produto.");
+                MessageBox.Show("Falha ao inserir produto. - " + MySqlErrorCode.WrongValue);
             }
 
         }
