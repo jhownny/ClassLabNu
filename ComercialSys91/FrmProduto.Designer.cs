@@ -30,14 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstProduto = new System.Windows.Forms.ListBox();
             this.bntIserirProd = new System.Windows.Forms.Button();
             this.txtIdProd = new System.Windows.Forms.TextBox();
             this.txtUni = new System.Windows.Forms.TextBox();
             this.txtVl = new System.Windows.Forms.TextBox();
             this.txtCod = new System.Windows.Forms.TextBox();
             this.txtDesconto = new System.Windows.Forms.TextBox();
-            this.txtDescrição = new System.Windows.Forms.TextBox();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
+            this.btnListarProd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -45,13 +46,13 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // listBox1
+            // lstProduto
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(298, 32);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(402, 238);
-            this.listBox1.TabIndex = 1;
+            this.lstProduto.FormattingEnabled = true;
+            this.lstProduto.Location = new System.Drawing.Point(298, 32);
+            this.lstProduto.Name = "lstProduto";
+            this.lstProduto.Size = new System.Drawing.Size(402, 238);
+            this.lstProduto.TabIndex = 1;
             // 
             // bntIserirProd
             // 
@@ -61,6 +62,7 @@
             this.bntIserirProd.TabIndex = 2;
             this.bntIserirProd.Text = "&Inserir";
             this.bntIserirProd.UseVisualStyleBackColor = true;
+            this.bntIserirProd.Click += new System.EventHandler(this.bntIserirProd_Click);
             // 
             // txtIdProd
             // 
@@ -98,28 +100,40 @@
             this.txtDesconto.Size = new System.Drawing.Size(100, 20);
             this.txtDesconto.TabIndex = 8;
             // 
-            // txtDescrição
+            // txtDescricao
             // 
-            this.txtDescrição.Location = new System.Drawing.Point(60, 180);
-            this.txtDescrição.Name = "txtDescrição";
-            this.txtDescrição.Size = new System.Drawing.Size(100, 20);
-            this.txtDescrição.TabIndex = 9;
+            this.txtDescricao.Location = new System.Drawing.Point(60, 180);
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(100, 20);
+            this.txtDescricao.TabIndex = 9;
+            // 
+            // btnListarProd
+            // 
+            this.btnListarProd.Location = new System.Drawing.Point(463, 336);
+            this.btnListarProd.Name = "btnListarProd";
+            this.btnListarProd.Size = new System.Drawing.Size(100, 23);
+            this.btnListarProd.TabIndex = 10;
+            this.btnListarProd.Text = "&Listar Produtos";
+            this.btnListarProd.UseVisualStyleBackColor = true;
+            this.btnListarProd.Click += new System.EventHandler(this.btnListarProd_Click);
             // 
             // FrmProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txtDescrição);
+            this.Controls.Add(this.btnListarProd);
+            this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.txtDesconto);
             this.Controls.Add(this.txtCod);
             this.Controls.Add(this.txtVl);
             this.Controls.Add(this.txtUni);
             this.Controls.Add(this.txtIdProd);
             this.Controls.Add(this.bntIserirProd);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstProduto);
             this.Name = "FrmProduto";
             this.Text = "FrmProduto";
+            this.Load += new System.EventHandler(this.FrmProduto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,13 +142,14 @@
         #endregion
 
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstProduto;
         private System.Windows.Forms.Button bntIserirProd;
         private System.Windows.Forms.TextBox txtIdProd;
         private System.Windows.Forms.TextBox txtUni;
         private System.Windows.Forms.TextBox txtVl;
         private System.Windows.Forms.TextBox txtCod;
         private System.Windows.Forms.TextBox txtDesconto;
-        private System.Windows.Forms.TextBox txtDescrição;
+        private System.Windows.Forms.TextBox txtDescricao;
+        private System.Windows.Forms.Button btnListarProd;
     }
 }

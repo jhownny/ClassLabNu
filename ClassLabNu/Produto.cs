@@ -41,6 +41,12 @@ namespace ClassLabNu
             this.valor = valor;
             this.desconto = desconto;
         }
+
+        public static List<Produto> Listar()
+        {
+            throw new NotImplementedException();
+        }
+
         public Produto(int id, string descricao, double unidade, string codBar, double valor, double desconto, bool descontinuado)
         {
             this.id = id;
@@ -72,6 +78,28 @@ namespace ClassLabNu
             // conecta banco e realiza consulta por parte da descriação do produtos
             return produtos;
         }
+        public void InserirProduto()
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "sp_cliente_inserir";
+            cmd.Parameters.AddWithValue("_descricao", descricao);
+            cmd.Parameters.AddWithValue("_unidade", unidade);
+            cmd.Parameters.AddWithValue("_codBar", codBar);
+            cmd.Parameters.AddWithValue("_valor",valor);
+            cmd.Parameters.AddWithValue("_desconto",desconto);
+
+
+            id = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Connection.Close();
+
+
+        }
+
+
+
+
+
         public List<Produto> ListarTodos()
         {
             List<Produto> produtos = new List<Produto>();
