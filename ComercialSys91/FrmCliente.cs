@@ -65,18 +65,7 @@ namespace ComercialSys91
 
 
 
-        private void btnListar_Click(object sender, EventArgs e)
-        {
-            lstClientes.Items.Clear();
-            List<Cliente> ListaDeClientes = Cliente.Listar();
-            foreach (Cliente cliente in ListaDeClientes)
-            {
 
-                lstClientes.Items.Add(cliente.Id + " - " + cliente.Nome);
-
-            }
-
-        }
 
         private void txtCpf_TextChanged(object sender, EventArgs e)
         {
@@ -90,6 +79,93 @@ namespace ComercialSys91
 
         private void txtNome_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void btlListar_Click(object sender, EventArgs e)
+        {
+
+            dgvClientes.Rows.Clear();
+            List<Cliente> ListaDeClientes = Cliente.Listar();
+            int cont = ListaDeClientes.Count;
+            foreach (Cliente cliente in ListaDeClientes)
+            {
+
+                dgvClientes.Rows.Add();
+                //dgvClientes.Rows[dgvClientes.NewRowIndex].Cells[0].Value = cliente.Id.ToString();
+                dgvClientes.Rows[dgvClientes.CurrentRow.Index].Cells[0].Value = cliente.Id.ToString();
+                dgvClientes.Rows[dgvClientes.CurrentRow.Index].Cells[1].Value = cliente.Nome.ToString();
+                dgvClientes.Rows[dgvClientes.CurrentRow.Index].Cells[2].Value = cliente.Cpf.ToString();
+                dgvClientes.Rows[dgvClientes.CurrentRow.Index].Cells[3].Value = cliente.Email.ToString();
+                dgvClientes.Rows[dgvClientes.CurrentRow.Index].Cells[4].Value = cliente.Ativo;
+
+            }
+
+        }
+
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if(btnBuscar.Text == "...")
+            {
+
+                txtId.ReadOnly = false;
+                txtId.Focus();
+                btnBuscar.Text = "Buscar";
+
+            }
+            else
+            {
+
+                Cliente cliente = Cliente.ConsultarPorId(int.Parse(txtId.Text));
+                if (cliente.Id > 0)
+                {
+
+                    txtNome.Text = cliente.Nome.ToString();
+                    txtCpf.Text = cliente.Cpf.ToString();
+                    txtEmail.Text = cliente.Email.ToString();
+                    dtpData_Cad.Value = cliente.Data_Cad.Date;
+                    chkAtivo.Checked = cliente.Ativo;
+
+                    btnBuscar.Text = "...";
+                    txtId.ReadOnly=true;
+                    btnAlterar.Enabled = true;
+                    txtCpf.ReadOnly=true;
+
+                }
+                else
+                {
+
+                    MessageBox.Show("Este cadastro não existe.");
+
+                }
+            }
+            
+
+
+
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = new Cliente();    
+
+
+            if (cliente.Aterar(int.Parse(txtId.Text),txtNome.Text, txtEmail.Text))
+            {
+
+                MessageBox.Show("Cliente Alterado com Sucesso!");
+
+
+            }
+            else
+            {
+
+                MessageBox.Show("Falha ao alterar Cliente.");
+
+            }
+
+
 
         }
     }

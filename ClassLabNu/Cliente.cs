@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using MySql.Data.MySqlClient;
 
 
 namespace ClassLabNu
@@ -69,24 +70,93 @@ namespace ClassLabNu
         }
 
 
-        public bool Aterar(Cliente cliente)
+        public bool Aterar(int _id, string _nome, string _email )
         {
-            return true;
+            bool resultado = false;
+            try
+            {
+
+                var cmd = Banco.Abrir();
+                cmd.CommandType = CommandType.StoredProcedure;
+                //recebe o nome da procedure
+
+                cmd.CommandText = "sp_cliente_alterar";
+                //adiciona os paâmetrod da procedure - no mysql
+                cmd.Parameters.Add("_id", MySqlDbType.Int32).Value = _id;
+                cmd.Parameters.Add("_email", MySqlDbType.VarChar).Value = _email;
+                cmd.Parameters.Add("_nome", MySqlDbType.VarChar).Value = _nome;
+
+                //cmd.Parameters.AddWithValue("_id", _id);
+                //cmd.Parameters.AddWithValue("_nome", _nome);
+                //cmd.Parameters.AddWithValue("_email", _email);
+
+                cmd.ExecuteNonQuery();
+
+                resultado = true;
+
+                cmd.Connection.Close();
+
+            }
+            catch (Exception)
+            {
+
+                
+
+            }
+
+            return resultado;
+           
         }
 
-        public static Cliente ConsultarPorId(int id)
+        public static Cliente ConsultarPorId(int _id)
         {
 
             Cliente cliente = new Cliente();
+            MySqlCommand cmd = Banco.Abrir();
+
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from clientes where idcli = " + _id;
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+
+                cliente.Id = Convert.ToInt32(dr["idCli"]);
+                //cliente.Nome = dr["Nome"].ToString();
+                //cliente.Nome = dr[1].ToString();
+                cliente.Nome = dr.GetString(1);
+                cliente.Cpf = dr.GetString(2);
+                cliente.Email = dr.GetString(3);
+                cliente.Data_Cad = dr.GetDateTime(4);
+                cliente.Ativo = dr.GetBoolean(5);
+
+
+            }
 
             return cliente;
 
         }
-        public static Cliente ConsultarPorCpf(int cpf)
+        public static Cliente ConsultarPorCpf(int _cpf)
         {
 
             Cliente cliente = new Cliente();
+            MySqlCommand cmd = Banco.Abrir();
 
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from clientes where cpf = " + _cpf;
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+
+                cliente.Id = Convert.ToInt32(dr["idCli"]);
+                //cliente.Nome = dr["Nome"].ToString();
+                cliente.Nome = dr[1].ToString();
+                cliente.Cpf = dr.GetString(2);
+                cliente.Email = dr.GetString(3);
+                cliente.Data_Cad = dr.GetDateTime(4);
+                cliente.Ativo = dr.GetBoolean(5);
+
+
+            }
             return cliente;
 
         }
@@ -96,7 +166,7 @@ namespace ClassLabNu
             List<Cliente> clientes = new List<Cliente>();
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "Select * from clientes order by 2";
+            cmd.CommandText = "Select * from clientes where ativo = 1 order by nome";
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -112,9 +182,23 @@ namespace ClassLabNu
 
             }
 
+
+
             return clientes;
 
         }
+
+        public void desativar(int _id)
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "uupdate clientes set ativo = 0 where idcli = " + _id; 
+            cmd.ExecuteReader();
+            cmd.Connection.Close();
+
+        }
+
+
 
     }
 }

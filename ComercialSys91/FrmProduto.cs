@@ -24,7 +24,7 @@ namespace ComercialSys91
 
         }
 
-        private void bntIserirProd_Click(object sender, EventArgs e)
+       /* private void bntIserirProd_Click(object sender, EventArgs e)
         {
             Produto c = new Produto(txtUni.Text, txtVl.Text, txtDesconto.Text, txtCod.Text, txtDescricao.Text);
 
@@ -42,7 +42,7 @@ namespace ComercialSys91
                 MessageBox.Show("Falha ao inserir produto. - " + MySqlErrorCode.WrongValue);
             }
 
-        }
+        }*/
 
         private void btnListarProd_Click(object sender, EventArgs e)
         {
@@ -54,6 +54,11 @@ namespace ComercialSys91
                 lstProduto.Items.Add(produto.Id + " - " + produto.Descricao + " - " + produto.CodBar);
 
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
