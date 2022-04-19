@@ -296,7 +296,7 @@
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.txtNome);
             this.Name = "FrmCliente";
-            this.Text = "Form1";
+            this.Text = "Cliente";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);

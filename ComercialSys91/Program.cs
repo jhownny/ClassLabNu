@@ -18,7 +18,7 @@ namespace ComercialSys91
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmCliente());
+            Application.Run(new FrmPrincipal());
         }
     }
 }
