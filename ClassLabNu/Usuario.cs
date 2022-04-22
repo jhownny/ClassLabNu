@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Data;
+
 
 namespace ClassLabNu
 {
@@ -52,20 +54,46 @@ namespace ClassLabNu
 
         //Métodos da Classe
         
-        public int inserir()
+        public void inserir()
         {
-            //Chamadas de Banco que grava registro
-            return id;  
+
+            var cmd = Banco.Abrir();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "sp_usuario_inserir";
+            cmd.Parameters.AddWithValue("_nome", Nome);
+            cmd.Parameters.AddWithValue("_email", Email);
+            cmd.Parameters.AddWithValue("_senha", Password);
+
+            Id = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Connection.Close();
+            
+             
 
 
         }
 
-        public List<Usuario> ListarUsuario()
+        public List<Usuario> ListarUsuario(Nivel)
         {
             List<Usuario> usuarios = new List<Usuario>();
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "Select * from usuario order";
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
 
+                usuarios.Add(new Usuario(
+                    dr.GetInt32(0),
+                    dr.GetString(1),
+                    dr.GetString(2),
+                    dr.(3),
+                    dr.GetBoolean(4),
+                    dr.GetString(5)
+                    )) ;
+
+            }
+            
             return usuarios;
-
 
         }
 

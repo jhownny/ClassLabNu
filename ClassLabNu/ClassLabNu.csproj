@@ -91,6 +91,7 @@
     <Compile Include="Pedido.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tipo.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
