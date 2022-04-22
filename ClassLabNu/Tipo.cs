@@ -61,6 +61,8 @@ namespace ClassLabNu
             cmd.Connection.Close();
         }
 
+
+
         //Alterar Tipo de Usuario
         public bool alterar(int _idtipo, string _nome, string _sigla)
         {
@@ -96,8 +98,76 @@ namespace ClassLabNu
             }
             return resultado;
 
+        }
 
+
+
+        public Tipo BuscarPorSigla()
+        {
+
+            Tipo tipo = new Tipo();
+            MySqlCommand cmd = Banco.Abrir();
+
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from clientes where sigla = " + sigla;
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+
+                tipo.id = Convert.ToInt32(dr["idtipo"]);
+                tipo.nome = dr.GetString(1);
+                tipo.sigla = dr.GetString(2);
+
+            }
+
+            return tipo;
 
         }
-    }
+
+        public Tipo BuscarPorNome()
+        {
+
+            Tipo tipo = new Tipo();
+            MySqlCommand cmd = Banco.Abrir();
+
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from clientes where nome = " + nome;
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+
+                tipo.id = Convert.ToInt32(dr["idtipo"]);
+                tipo.nome = dr.GetString(1);
+                tipo.sigla = dr.GetString(2);
+
+            }
+
+            return tipo;
+
+        }
+
+
+
+        public List<Tipo> ListarTodos()
+        {
+            List<Tipo> tipos = new List<Tipo>();
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "Select * from tipos order";
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+
+                tipos.Add(new Tipo(
+                    dr.GetInt32(0),
+                    dr.GetString(1),
+                    dr.GetString(2)
+                    ));
+
+            }
+            return tipos;
+        }
+
+
+    }//Fim da Classe Tipo
 }

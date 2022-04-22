@@ -67,6 +67,7 @@ namespace ClassLabNu
 
 
 
+        //Inserir Produto
         public void Inserir() 
         {
             var cmd = Banco.Abrir();
@@ -85,6 +86,9 @@ namespace ClassLabNu
 
         }
 
+
+
+        //Alterar Produto
         public bool Alterar(int _idprod, string _unidade, string _valor, int _desconto, double _codbar, string _descricao)
         {
             bool resultado = false;
@@ -124,7 +128,7 @@ namespace ClassLabNu
         }
 
 
-
+        
         public Produto BuscarPorId(int _id)
         {
             Produto produto = new Produto();
@@ -135,7 +139,7 @@ namespace ClassLabNu
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                produto.id = Convert.ToInt32(dr["dProd"]);
+                produto.id = Convert.ToInt32(dr["idProd"]);
                 produto.unidade = dr.GetDouble(1);
                 produto.valor = dr.GetInt32(2);
                 produto.desconto = dr.GetInt32(3);
@@ -152,7 +156,6 @@ namespace ClassLabNu
 
                 return produto;
         }
-
 
         public Produto BuscarPorCodBar(string _codBar)
         {
@@ -180,7 +183,6 @@ namespace ClassLabNu
                 return produto;
         }
 
-
         public Produto BuscarPorDescricao(string _descricao)
         {
             Produto produto = new Produto();
@@ -207,6 +209,8 @@ namespace ClassLabNu
         }
 
 
+
+        //Listatgem dos Produtos
         public List<Produto> ListarTodos()
         {
             List<Produto> produtos = new List<Produto>();
@@ -237,10 +241,6 @@ namespace ClassLabNu
       
 
     }// fim da classe produto
-
-
-
-
 
 
 }

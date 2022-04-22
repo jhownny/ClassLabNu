@@ -43,5 +43,5 @@ namespace ClassLabNu
 
 
 
-    }
+    }//Fim da Classe ItemPedido
 }
