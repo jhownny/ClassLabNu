@@ -126,7 +126,7 @@ namespace ComercialSys91
             }
             else
             {
-                Produto produto.BuscarPorId(int.Parse(txtId.Text));
+                Produto produtos.BuscarPorId(int.Parse(txtId.Text));
 
 
 
