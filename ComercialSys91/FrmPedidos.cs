@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClassLabNu;
 
 namespace ComercialSys91
 {
@@ -18,23 +17,14 @@ namespace ComercialSys91
             InitializeComponent();
         }
 
-        private void FrmPedidos_Load(object sender, EventArgs e)
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
-            var lista = Cliente.Listar();
-           
-            comboBox1.DataSource = lista;
-            comboBox1.DisplayMember = "Nome";
-            comboBox1.ValueMember = "Id"; 
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(comboBox1.SelectedValue.ToString());
-        }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            textBox1.Text = comboBox1.SelectedValue.ToString();
         }
     }
 }

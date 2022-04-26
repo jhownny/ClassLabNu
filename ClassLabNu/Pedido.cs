@@ -17,7 +17,7 @@ namespace ClassLabNu
         //Propriedades
         public int Id { get; set; }
         public DateTime DataPed { get; set; }
-        public string status { get; set; }
+        public bool status { get; set; }
         public double desconto { get; set; }
         public Cliente Cliente { get; set; }
         public Usuario Usuario { get; set; }
@@ -26,7 +26,7 @@ namespace ClassLabNu
         //Construtores
         public Pedido() { }
 
-        public Pedido(DateTime dataPed, string status, double desconto, Cliente cliente, Usuario usuario, List<ItemPedido> itens)
+        public Pedido(DateTime dataPed, bool status, double desconto, Cliente cliente, Usuario usuario, List<ItemPedido> itens)
         {
             DataPed = dataPed;
             this.status = status;
@@ -36,7 +36,7 @@ namespace ClassLabNu
             Itens = itens;
         }
 
-        public Pedido(int id, DateTime dataPed, string status, double desconto, Cliente cliente, Usuario usuario, List<ItemPedido> itens)
+        public Pedido(int id, DateTime dataPed, bool status, double desconto, Cliente cliente, Usuario usuario, List<ItemPedido> itens)
         {
             Id = id;
             DataPed = dataPed;
