@@ -43,23 +43,8 @@ namespace ComercialSys91
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            /*var cmd = Banco.Abrir();
-            if (cmd.Connection.State == ConnectionState.Open)
-            {
-                Usuario usuario = new Usuario("Paulo", "gsdf@f.com", new Nivel("caixa", "cx"), "5635345");
-                MessageBox.Show("Opa migão " + usuario.Nome + "!");
-
-            }
-
-            Cliente cliente = new Cliente();
-            
-
-
-           
-            //Text = "Sistema Comerciaç TI91 - ( " + usuario.Nome + " - " + usuario.Nivel + " )";  
-            */
-
+            string usuario = System.Environment.UserName;
+            Text += " - " + usuario;
 
         }
 

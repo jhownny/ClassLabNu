@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.lstProduto = new System.Windows.Forms.ListBox();
             this.bntIserirProd = new System.Windows.Forms.Button();
             this.txtIdProd = new System.Windows.Forms.TextBox();
             this.txtUni = new System.Windows.Forms.TextBox();
@@ -44,16 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dgvProdutos = new System.Windows.Forms.DataGridView();
-            this.clnIdProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDesconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnCod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.bntAlterar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -61,19 +53,26 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // lstProduto
+            // 
+            this.lstProduto.FormattingEnabled = true;
+            this.lstProduto.Location = new System.Drawing.Point(298, 32);
+            this.lstProduto.Name = "lstProduto";
+            this.lstProduto.Size = new System.Drawing.Size(402, 238);
+            this.lstProduto.TabIndex = 1;
+            // 
             // bntIserirProd
             // 
-            this.bntIserirProd.Location = new System.Drawing.Point(239, 167);
+            this.bntIserirProd.Location = new System.Drawing.Point(35, 247);
             this.bntIserirProd.Name = "bntIserirProd";
             this.bntIserirProd.Size = new System.Drawing.Size(75, 23);
             this.bntIserirProd.TabIndex = 2;
             this.bntIserirProd.Text = "&Inserir";
             this.bntIserirProd.UseVisualStyleBackColor = true;
-            this.bntIserirProd.Click += new System.EventHandler(this.bntIserirProd_Click);
             // 
             // txtIdProd
             // 
-            this.txtIdProd.Location = new System.Drawing.Point(104, 47);
+            this.txtIdProd.Location = new System.Drawing.Point(108, 46);
             this.txtIdProd.Name = "txtIdProd";
             this.txtIdProd.ReadOnly = true;
             this.txtIdProd.Size = new System.Drawing.Size(66, 20);
@@ -81,42 +80,42 @@
             // 
             // txtUni
             // 
-            this.txtUni.Location = new System.Drawing.Point(202, 47);
+            this.txtUni.Location = new System.Drawing.Point(90, 72);
             this.txtUni.Name = "txtUni";
             this.txtUni.Size = new System.Drawing.Size(100, 20);
             this.txtUni.TabIndex = 4;
             // 
             // txtVl
             // 
-            this.txtVl.Location = new System.Drawing.Point(328, 47);
+            this.txtVl.Location = new System.Drawing.Point(90, 98);
             this.txtVl.Name = "txtVl";
             this.txtVl.Size = new System.Drawing.Size(100, 20);
             this.txtVl.TabIndex = 5;
             // 
             // txtCod
             // 
-            this.txtCod.Location = new System.Drawing.Point(202, 103);
+            this.txtCod.Location = new System.Drawing.Point(90, 150);
             this.txtCod.Name = "txtCod";
             this.txtCod.Size = new System.Drawing.Size(100, 20);
             this.txtCod.TabIndex = 7;
             // 
             // txtDesconto
             // 
-            this.txtDesconto.Location = new System.Drawing.Point(450, 47);
+            this.txtDesconto.Location = new System.Drawing.Point(90, 124);
             this.txtDesconto.Name = "txtDesconto";
             this.txtDesconto.Size = new System.Drawing.Size(100, 20);
             this.txtDesconto.TabIndex = 8;
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(328, 103);
+            this.txtDescricao.Location = new System.Drawing.Point(90, 180);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(100, 20);
             this.txtDescricao.TabIndex = 9;
             // 
             // btnListarProd
             // 
-            this.btnListarProd.Location = new System.Drawing.Point(275, 395);
+            this.btnListarProd.Location = new System.Drawing.Point(463, 336);
             this.btnListarProd.Name = "btnListarProd";
             this.btnListarProd.Size = new System.Drawing.Size(100, 23);
             this.btnListarProd.TabIndex = 10;
@@ -127,7 +126,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(227, 31);
+            this.label1.Location = new System.Drawing.Point(32, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 11;
@@ -136,7 +135,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(360, 31);
+            this.label2.Location = new System.Drawing.Point(40, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 13);
             this.label2.TabIndex = 12;
@@ -145,16 +144,17 @@
             // Desconto
             // 
             this.Desconto.AutoSize = true;
-            this.Desconto.Location = new System.Drawing.Point(471, 31);
+            this.Desconto.Location = new System.Drawing.Point(31, 131);
             this.Desconto.Name = "Desconto";
             this.Desconto.Size = new System.Drawing.Size(53, 13);
             this.Desconto.TabIndex = 13;
             this.Desconto.Text = "Desconto";
+            this.Desconto.Click += new System.EventHandler(this.label3_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(226, 87);
+            this.label3.Location = new System.Drawing.Point(31, 157);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 14;
@@ -163,7 +163,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(346, 87);
+            this.label4.Location = new System.Drawing.Point(29, 183);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 15;
@@ -172,105 +172,32 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(131, 31);
+            this.label5.Location = new System.Drawing.Point(40, 46);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(18, 13);
             this.label5.TabIndex = 16;
             this.label5.Text = "ID";
             // 
-            // dgvProdutos
+            // button1
             // 
-            this.dgvProdutos.AllowUserToAddRows = false;
-            this.dgvProdutos.AllowUserToDeleteRows = false;
-            this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clnIdProd,
-            this.clnUni,
-            this.clnValor,
-            this.clnDesconto,
-            this.clnCod,
-            this.clnDescricao});
-            this.dgvProdutos.Location = new System.Drawing.Point(48, 222);
-            this.dgvProdutos.Name = "dgvProdutos";
-            this.dgvProdutos.ReadOnly = true;
-            this.dgvProdutos.Size = new System.Drawing.Size(553, 150);
-            this.dgvProdutos.TabIndex = 17;
-            // 
-            // clnIdProd
-            // 
-            this.clnIdProd.Frozen = true;
-            this.clnIdProd.HeaderText = "ID";
-            this.clnIdProd.Name = "clnIdProd";
-            this.clnIdProd.ReadOnly = true;
-            this.clnIdProd.Width = 50;
-            // 
-            // clnUni
-            // 
-            this.clnUni.Frozen = true;
-            this.clnUni.HeaderText = "Unidade";
-            this.clnUni.Name = "clnUni";
-            this.clnUni.ReadOnly = true;
-            this.clnUni.Width = 50;
-            // 
-            // clnValor
-            // 
-            this.clnValor.Frozen = true;
-            this.clnValor.HeaderText = "Valor";
-            this.clnValor.Name = "clnValor";
-            this.clnValor.ReadOnly = true;
-            this.clnValor.Width = 90;
-            // 
-            // clnDesconto
-            // 
-            this.clnDesconto.Frozen = true;
-            this.clnDesconto.HeaderText = "Desconto";
-            this.clnDesconto.Name = "clnDesconto";
-            this.clnDesconto.ReadOnly = true;
-            // 
-            // clnCod
-            // 
-            this.clnCod.Frozen = true;
-            this.clnCod.HeaderText = "Codigo de Barras";
-            this.clnCod.Name = "clnCod";
-            this.clnCod.ReadOnly = true;
-            this.clnCod.Width = 130;
-            // 
-            // clnDescricao
-            // 
-            this.clnDescricao.Frozen = true;
-            this.clnDescricao.HeaderText = "Descrição";
-            this.clnDescricao.Name = "clnDescricao";
-            this.clnDescricao.ReadOnly = true;
-            this.clnDescricao.Width = 90;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(48, 47);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(45, 23);
-            this.btnBuscar.TabIndex = 18;
-            this.btnBuscar.Text = "...";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.bntBuscar_Click);
-            // 
-            // bntAlterar
-            // 
-            this.bntAlterar.Location = new System.Drawing.Point(320, 167);
-            this.bntAlterar.Name = "bntAlterar";
-            this.bntAlterar.Size = new System.Drawing.Size(75, 23);
-            this.bntAlterar.TabIndex = 19;
-            this.bntAlterar.Text = "&Alterar";
-            this.bntAlterar.UseVisualStyleBackColor = true;
-            this.bntAlterar.Click += new System.EventHandler(this.bntAlterar_Click);
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Olive;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::ComercialSys91.Properties.Resources.Save;
+            this.button1.Location = new System.Drawing.Point(676, 312);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(70, 70);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Salvar";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // FrmProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.bntAlterar);
-            this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.dgvProdutos);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -285,10 +212,10 @@
             this.Controls.Add(this.txtUni);
             this.Controls.Add(this.txtIdProd);
             this.Controls.Add(this.bntIserirProd);
+            this.Controls.Add(this.lstProduto);
             this.Name = "FrmProduto";
-            this.Text = "Produto";
+            this.Text = "FrmProduto";
             this.Load += new System.EventHandler(this.FrmProduto_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,6 +224,7 @@
         #endregion
 
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ListBox lstProduto;
         private System.Windows.Forms.Button bntIserirProd;
         private System.Windows.Forms.TextBox txtIdProd;
         private System.Windows.Forms.TextBox txtUni;
@@ -311,14 +239,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dgvProdutos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnIdProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnUni;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnValor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnDesconto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnCod;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnDescricao;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button bntAlterar;
+        private System.Windows.Forms.Button button1;
     }
 }
