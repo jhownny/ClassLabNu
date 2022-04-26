@@ -52,16 +52,10 @@ namespace ComercialSys91
             frmProduto.Show();
         }
 
-        private void cadastrosToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }
