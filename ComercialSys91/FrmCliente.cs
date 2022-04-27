@@ -154,6 +154,21 @@ namespace ComercialSys91
 
         }
 
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            Cep cep = new Cep();
 
+
+            if()
+            {
+
+
+
+            }
+            else
+            {
+
+            }
+        }
     }
 }

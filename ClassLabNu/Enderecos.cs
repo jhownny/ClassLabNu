@@ -64,5 +64,27 @@ namespace ClassLabNu
 
         //Métodos da Classe
 
+        public void Inserir()
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = 
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 }
