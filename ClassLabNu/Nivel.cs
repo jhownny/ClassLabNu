@@ -54,10 +54,10 @@ namespace ClassLabNu
             return true;
         }
 
-
-
-
-
+        internal Nivel ObterPorId(int v)
+        {
+            throw new NotImplementedException();
+        }
     }//Fim da Classe NIvel
 
 }
