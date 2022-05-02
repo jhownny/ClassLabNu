@@ -12,7 +12,7 @@ namespace ClassLabNu
         private int id;
         private string nome;
         private string sigla;
-        public readonly bool ativo;
+        
 
         // criando propriedades
         public int Id { get { return id; } }
@@ -22,26 +22,33 @@ namespace ClassLabNu
 
 
         // métodos construtores
-        public Nivel()
+        public Nivel(int _id = 0)
         {
         }
         public Nivel(string nome, string sigla)
         {
             this.nome = nome;
             this.sigla = sigla;
-            ativo = true;
+            
         }
-        public Nivel(int id, string nome, string sigla, bool ativo)
+        public Nivel(int id, string nome, string sigla )
         {
             this.id = id;
             this.nome = nome;
             this.sigla = sigla;
-            this.ativo = ativo;
+            
         }
         // Métodos da classe
         public void InserirNovo()
         {
             // inserir um novo nível
+            var cmd = Banco.Abrir();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "sp_niveis_inserir";
+            cmd.Parameters.AddWithValue("_nome",Nome);
+            cmd.Parameters.AddWithValue("_sigla",Sigla);
+            id = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Connection.Close();
         }
         /// <summary>
         /// Altera a sigla do nível indicado. Apenas administradores.
@@ -54,9 +61,38 @@ namespace ClassLabNu
             return true;
         }
 
-        internal Nivel ObterPorId(int v)
+        public static Nivel ObterPorId(int _id)
         {
-            throw new NotImplementedException();
+            Nivel nivel = null;
+            
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "select * from niveis where idNv = " + _id;
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+
+                nivel = new Nivel(dr.GetInt32(0), dr.GetString(1), dr.GetString(2));
+
+            }
+            return nivel;
+            //throw new NotImplementedException();
+
+            public static List<Nivel> Listar()
+            {
+                List<Nivel> niveis = new List<Nivel>();
+                var cmd = Banco.Abrir();
+                cmd.CommandText = "select * from niveis";
+                var dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+
+                    niveis.Add(new Nivel(dr.GetInt32(0), dr.GetString(1), dr.GetString(2)));
+
+                }
+                return niveis;
+
+            }
+
         }
     }//Fim da Classe NIvel
 
