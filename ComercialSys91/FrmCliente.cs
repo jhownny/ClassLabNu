@@ -179,6 +179,11 @@ namespace ComercialSys91
 
         }
 
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
 
 
         //private void textBox2_TextChanged(object sender, EventArgs e)

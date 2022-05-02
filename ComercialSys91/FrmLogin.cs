@@ -16,5 +16,19 @@ namespace ComercialSys91
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Program.usuario = Usuario.EfetuarLogin(txtEmail.Text, txtSenha.Text);
+            if (Program.usuario.Id > 0)
+            {
+
+                this.Close();
+            }
+            else
+            {
+                lblMensagem.Text = "Email ou Senha incorreto!";
+            }
+        }
     }
 }

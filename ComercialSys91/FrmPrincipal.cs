@@ -55,7 +55,32 @@ namespace ComercialSys91
 
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // criar instância do Formulário Cliente
+            FrmCliente frmCliente = new FrmCliente();
+            // tornando frmCliente filho do Container FrmPrincipal (this)
+            frmCliente.MdiParent = this;
+            // exibe o formulário de cliente no formprincipal
+            frmCliente.Show();
+        }
 
+        private void produtoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // criar instância do Formulário Produto
+            FrmProduto frmProduto = new FrmProduto();
+            // tornando frmProdutofilho do Container FrmPrincipal (this)
+            frmProduto.MdiParent = this;
+            // exibe o formulário de produto no formprincipal
+            frmProduto.Show();
+        }
+
+        private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // criar instância do Formulário Produto
+            FrmUsuario frmUsuario = new FrmUsuario();
+            // tornando frmProdutofilho do Container FrmPrincipal (this)
+            frmUsuario.MdiParent = this;
+            // exibe o formulário de produto no formprincipal
+            frmUsuario.Show();
         }
     }
 }

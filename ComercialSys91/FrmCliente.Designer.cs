@@ -45,11 +45,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dtpData_Cad = new System.Windows.Forms.DateTimePicker();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.clnIdCli = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnAtivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btlListar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -83,6 +78,11 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.clnIdCli = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnAtivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -239,52 +239,13 @@
             this.clnCpf,
             this.clnEmail,
             this.clnAtivo});
-            this.dgvClientes.Location = new System.Drawing.Point(43, 315);
+            this.dgvClientes.Location = new System.Drawing.Point(125, 335);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.RowHeadersVisible = false;
-            this.dgvClientes.Size = new System.Drawing.Size(433, 157);
+            this.dgvClientes.Size = new System.Drawing.Size(312, 157);
             this.dgvClientes.TabIndex = 17;
-            // 
-            // clnIdCli
-            // 
-            this.clnIdCli.Frozen = true;
-            this.clnIdCli.HeaderText = "Id";
-            this.clnIdCli.Name = "clnIdCli";
-            this.clnIdCli.ReadOnly = true;
-            this.clnIdCli.Width = 50;
-            // 
-            // clnNome
-            // 
-            this.clnNome.Frozen = true;
-            this.clnNome.HeaderText = "Nome";
-            this.clnNome.Name = "clnNome";
-            this.clnNome.ReadOnly = true;
-            this.clnNome.Width = 130;
-            // 
-            // clnCpf
-            // 
-            this.clnCpf.Frozen = true;
-            this.clnCpf.HeaderText = "CPF";
-            this.clnCpf.Name = "clnCpf";
-            this.clnCpf.ReadOnly = true;
-            this.clnCpf.Width = 90;
-            // 
-            // clnEmail
-            // 
-            this.clnEmail.Frozen = true;
-            this.clnEmail.HeaderText = "Email";
-            this.clnEmail.Name = "clnEmail";
-            this.clnEmail.ReadOnly = true;
-            this.clnEmail.Width = 130;
-            // 
-            // clnAtivo
-            // 
-            this.clnAtivo.Frozen = true;
-            this.clnAtivo.HeaderText = "Ativo";
-            this.clnAtivo.Name = "clnAtivo";
-            this.clnAtivo.ReadOnly = true;
-            this.clnAtivo.Width = 30;
+            this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
             // 
             // btlListar
             // 
@@ -588,6 +549,46 @@
             this.comboBox3.Size = new System.Drawing.Size(121, 21);
             this.comboBox3.TabIndex = 0;
             // 
+            // clnIdCli
+            // 
+            this.clnIdCli.Frozen = true;
+            this.clnIdCli.HeaderText = "Id";
+            this.clnIdCli.Name = "clnIdCli";
+            this.clnIdCli.ReadOnly = true;
+            this.clnIdCli.Width = 63;
+            // 
+            // clnNome
+            // 
+            this.clnNome.Frozen = true;
+            this.clnNome.HeaderText = "Nome";
+            this.clnNome.Name = "clnNome";
+            this.clnNome.ReadOnly = true;
+            this.clnNome.Width = 63;
+            // 
+            // clnCpf
+            // 
+            this.clnCpf.Frozen = true;
+            this.clnCpf.HeaderText = "CPF";
+            this.clnCpf.Name = "clnCpf";
+            this.clnCpf.ReadOnly = true;
+            this.clnCpf.Width = 63;
+            // 
+            // clnEmail
+            // 
+            this.clnEmail.Frozen = true;
+            this.clnEmail.HeaderText = "Email";
+            this.clnEmail.Name = "clnEmail";
+            this.clnEmail.ReadOnly = true;
+            this.clnEmail.Width = 63;
+            // 
+            // clnAtivo
+            // 
+            this.clnAtivo.Frozen = true;
+            this.clnAtivo.HeaderText = "Ativo";
+            this.clnAtivo.Name = "clnAtivo";
+            this.clnAtivo.ReadOnly = true;
+            this.clnAtivo.Width = 63;
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -645,11 +646,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpData_Cad;
         private System.Windows.Forms.DataGridView dgvClientes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnIdCli;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnNome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnCpf;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnEmail;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn clnAtivo;
         private System.Windows.Forms.Button btlListar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -683,6 +679,11 @@
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button btnInsertEndereco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnIdCli;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnNome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnCpf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnEmail;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clnAtivo;
     }
 }
 
