@@ -38,6 +38,10 @@ namespace ComercialSys91
 
             }
 
+          
+
+
+
         }
 
 
@@ -154,21 +158,44 @@ namespace ComercialSys91
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void btnInsertEndereco_Click(object sender, EventArgs e)
         {
-            Cep cep = new Cep();
+            Endereco x = new Endereco(txtCep.Text, txtLogra.Text, txtCid.Text, txtCom.Text, txtNun.Text, txtBairro.Text, txtUf.Text, txtEst.Text);
+
+            x.Inserir();
 
 
-            if()
+            if (x.Id > 0)
             {
-
-
-
+                txtId.Text = x.Id.ToString();
+                MessageBox.Show("Endereço gravado com sucesso!");
             }
             else
             {
 
+                MessageBox.Show("Falha ao inserir Endereço.");
+
             }
+
         }
+
+
+
+        //private void textBox2_TextChanged(object sender, EventArgs e)
+        //{
+        //    Cep cep = new Cep();
+
+
+        //    if()
+        //    {
+
+
+
+        //    }
+        //    else
+        //    {
+
+        //    }
+        //}
     }
 }

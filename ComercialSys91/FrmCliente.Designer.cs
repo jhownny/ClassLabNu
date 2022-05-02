@@ -53,6 +53,7 @@
             this.btlListar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnInsertEndereco = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -63,7 +64,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtEst = new System.Windows.Forms.ComboBox();
             this.txtLogra = new System.Windows.Forms.TextBox();
             this.txtNun = new System.Windows.Forms.TextBox();
             this.txtUf = new System.Windows.Forms.TextBox();
@@ -307,6 +308,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnInsertEndereco);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.comboBox2);
             this.groupBox1.Controls.Add(this.label14);
@@ -317,7 +319,7 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.txtEst);
             this.groupBox1.Controls.Add(this.txtLogra);
             this.groupBox1.Controls.Add(this.txtNun);
             this.groupBox1.Controls.Add(this.txtUf);
@@ -327,10 +329,20 @@
             this.groupBox1.Controls.Add(this.txtCep);
             this.groupBox1.Location = new System.Drawing.Point(561, 47);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(398, 253);
+            this.groupBox1.Size = new System.Drawing.Size(398, 283);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Endereço";
+            // 
+            // btnInsertEndereco
+            // 
+            this.btnInsertEndereco.Location = new System.Drawing.Point(165, 242);
+            this.btnInsertEndereco.Name = "btnInsertEndereco";
+            this.btnInsertEndereco.Size = new System.Drawing.Size(98, 23);
+            this.btnInsertEndereco.TabIndex = 22;
+            this.btnInsertEndereco.Text = "Inserir &Endereço";
+            this.btnInsertEndereco.UseVisualStyleBackColor = true;
+            this.btnInsertEndereco.Click += new System.EventHandler(this.btnInsertEndereco_Click);
             // 
             // label15
             // 
@@ -421,13 +433,13 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "Estado";
             // 
-            // comboBox1
+            // txtEst
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(36, 174);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 8;
+            this.txtEst.FormattingEnabled = true;
+            this.txtEst.Location = new System.Drawing.Point(36, 174);
+            this.txtEst.Name = "txtEst";
+            this.txtEst.Size = new System.Drawing.Size(121, 21);
+            this.txtEst.TabIndex = 8;
             // 
             // txtLogra
             // 
@@ -477,7 +489,6 @@
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(100, 20);
             this.txtCep.TabIndex = 1;
-            this.txtCep.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // groupBox2
             // 
@@ -652,7 +663,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox txtEst;
         private System.Windows.Forms.TextBox txtLogra;
         private System.Windows.Forms.TextBox txtNun;
         private System.Windows.Forms.TextBox txtUf;
@@ -671,6 +682,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Button btnInsertEndereco;
     }
 }
 

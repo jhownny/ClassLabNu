@@ -87,7 +87,7 @@
     <Compile Include="Banco.cs" />
     <Compile Include="Cep.cs" />
     <Compile Include="Cliente.cs" />
-    <Compile Include="Enderecos.cs" />
+    <Compile Include="Endereco.cs" />
     <Compile Include="ItemPedido.cs" />
     <Compile Include="Nivel.cs" />
     <Compile Include="Pedido.cs" />

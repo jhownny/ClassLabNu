@@ -59,7 +59,7 @@ namespace ClassLabNu
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.CommandText = "sp_cliente_inserir";
+            cmd.CommandText = "sp_clientes_inserir";
             cmd.Parameters.AddWithValue("_nome",Nome);
             cmd.Parameters.AddWithValue("_cpf",Cpf);
             cmd.Parameters.AddWithValue("_email",Email);
@@ -80,7 +80,7 @@ namespace ClassLabNu
                 cmd.CommandType = CommandType.StoredProcedure;
                 //recebe o nome da procedure
 
-                cmd.CommandText = "sp_cliente_alterar";
+                cmd.CommandText = "sp_clientes_alterar";
                 //adiciona os paâmetrod da procedure - no mysql
                 cmd.Parameters.Add("_id", MySqlDbType.Int32).Value = _id;
                 cmd.Parameters.Add("_email", MySqlDbType.VarChar).Value = _email;
@@ -115,7 +115,7 @@ namespace ClassLabNu
             MySqlCommand cmd = Banco.Abrir();
 
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from clientes where idcli = " + _id;
+            cmd.CommandText = "select * from clientes where idCli = " + _id;
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
