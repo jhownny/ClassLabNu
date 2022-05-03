@@ -35,6 +35,8 @@ namespace ClassLabNu
         // métodos da classe - Ações da classe
         public void Inserir() 
         { 
+
+             
         
         }
         public void Alterar(ItemPedido item)
